@@ -1134,7 +1134,7 @@ App.ListView = Backbone.View.extend({
         this.$el.html(this.template({
             list: this.model
         }));
-        if (!_.isUndefined(this.model.attributes.custom_fields) && !_.isEmpty(this.model.attributes.custom_fields) && this.model.attributes.custom_fields) {
+        if (!_.isUndefined(this.model.attributes.custom_fields) && !_.isEmpty(this.model.attributes.custom_fields) && this.model.attributes.custom_fields && typeof this.model.attributes.custom_fields !== 'object') {
             var list_custom_fields = JSON.parse(this.model.attributes.custom_fields);
             if (!_.isUndefined(list_custom_fields.list_collapse) && list_custom_fields.list_collapse) {
                 this.$el.find('.js-list-' + this.model.attributes.id).addClass('Minimized_list').removeClass('list');
